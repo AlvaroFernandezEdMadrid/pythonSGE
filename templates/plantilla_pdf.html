@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informe de Temperaturas</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <h1>Informe de Temperaturas</h1>
+    <p>Fecha de generación: {{ fecha }}</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Comunidad Autónoma</th>
+          <th>Temperatura Máxima</th>
+          <th>Temperatura Mínima</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for registro in registros %}
+        <tr>
+          <td>{{ registro[0] }}</td>
+          <td>{{ registro[1] }}</td>
+          <td>{{ registro[2] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="grafica">
+      <h2>Gráfica de Temperaturas</h2>
+      <img
+        src="{{ ruta_imagen }}"
+        alt="Gráfica de Temperaturas"
+        style="width: 100%; max-width: 600px; height: auto"
+      />
+    </div>
+  </body>
+</html>
